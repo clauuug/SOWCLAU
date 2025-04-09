@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imágenes Horizontales</title>
+
+    <!-- Tipografía -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Encabezado principal -->
+    <header class="header">
+      <h1 class="header-title">Análisis de Proyectos Galardonados</h1>
+    </header>
+
+    <!-- Pantalla de carga -->
+    <div class="loading-container">
+      <h1 class="title">Nuevas Tendencias en Diseño Web</h1>
+      <h2 class="subtitle">Análisis de Proyectos Galardonados</h2>
+
+      <!-- Carrusel -->
+      <div class="slider">
+        <div class="slider-track">
+          <span>Awwwards</span>
+          <div class="star"></div>
+          <span>Webby Awards</span>
+          <div class="star"></div>
+          <span>FWA</span>
+          <div class="star"></div>
+          <span>CSS Design Awards</span>
+          <div class="star"></div>
+
+          <!-- Repetición -->
+          <span>Awwwards</span>
+          <div class="star"></div>
+          <span>Webby Awards</span>
+          <div class="star"></div>
+          <span>FWA</span>
+          <div class="star"></div>
+          <span>CSS Design Awards</span>
+          <div class="star"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="projects-container">
+        <!-- Camila -->
+        <div class="image-wrapper">
+          <img
+            src="assets/images/CAMILAROSACONTAINER.png"
+            alt="Camilarosa"
+            class="base-img project-img"
+          />
+          <img
+            src="assets/images/CAMILAROSACIRCULO.png"
+            alt="Círculo rosa"
+            class="circle-img"
+          />
+        </div>
+
+        <!-- Odd -->
+        <div class="image-wrapper">
+          <img
+            src="assets/images/ODDCONTAINER.png"
+            alt="Odd"
+            class="base-img project-img"
+          />
+          <img
+            src="assets/images/ODDCIRCULO.PNG"
+            alt="Círculo Odd"
+            class="circle-img"
+          />
+        </div>
+
+        <!-- TSI -->
+        <div class="image-wrapper">
+          <img
+            src="assets/images/TSICONTAINER.png"
+            alt="TSI"
+            class="base-img project-img"
+          />
+          <img
+            src="assets/images/TSICIRCULO.PNG"
+            alt="Círculo TSI"
+            class="circle-img"
+          />
+        </div>
+
+        <!-- Pura -->
+        <div class="image-wrapper">
+          <img
+            src="assets/images/PURACONTAINER.png"
+            alt="Pura"
+            class="base-img project-img"
+          />
+          <img
+            src="assets/images/PURACIRCULO.PNG"
+            alt="Círculo Pura"
+            class="circle-img"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Script de transición -->
+    <script>
+      setTimeout(function () {
+        const loader = document.querySelector(".loading-container");
+        const main = document.querySelector(".main-content");
+        const header = document.querySelector(".header");
+
+        // Añade clase para deslizar hacia arriba
+        loader.classList.add("slide-up");
+
+        // Espera a que termine la animación (1s) y muestra el contenido
+        setTimeout(function () {
+          loader.classList.add("hidden"); // lo elimina visualmente
+          main.classList.add("show");
+          header.classList.add("show-header");
+        }, 1000); // dura lo mismo que el transition del CSS
+      }, 800); // tiempo que permanece la pantalla de carga
+    </script>
+  </body>
+</html>

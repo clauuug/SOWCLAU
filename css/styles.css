@@ -1,0 +1,295 @@
+/* Estructura básica */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Gotham", sans-serif;
+  background-color: #0026ff29;
+  color: #000;
+  box-sizing: border-box;
+}
+
+/* ======================= */
+/* ENCABEZADO OCULTO INICIAL */
+/* ======================= */
+header {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 20vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #d6dcff;
+  position: relative;
+  z-index: 10;
+}
+
+.show-header {
+  display: flex;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+.header-title {
+  font-weight: 300;
+  font-size: 50px;
+  color: #000000;
+  margin: 0;
+  z-index: 1;
+}
+
+/* ======================= */
+/* LOADING SCREEN */
+/* ======================= */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+
+  background-color: transparent;
+  transition: transform 1s ease-in-out; /* Cambio aquí */
+}
+
+/* Añadimos el transform inicial */
+.loading-container {
+  transform: translateY(0); /* Se asegura que empiece desde 0 */
+}
+
+.loading-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/FONDOSOW.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* Nueva clase para deslizar hacia arriba */
+.loading-container.slide-up {
+  transform: translateY(-100%); /* Se mueve completamente hacia arriba */
+}
+
+/* Ocultar completamente el elemento */
+.loading-container.hidden {
+  display: none;
+}
+
+/* Asegurarse que main y header tengan transiciones también */
+.main-content,
+.header {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.main-content.show,
+.header.show-header {
+  opacity: 1;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 75.43px;
+  margin: 0;
+  color: #000000;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 37.45px;
+  margin-top: 20px;
+  color: #000000;
+}
+
+/* ======================= */
+/* CARRUSEL */
+/* ======================= */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.slider-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  align-items: center;
+  gap: 40px;
+}
+
+.slider-track span {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 30px;
+  white-space: nowrap;
+  color: #000000;
+}
+
+.star {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #000000;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ======================= */
+/* CONTENIDO PRINCIPAL OCULTO AL INICIO */
+/* ======================= */
+.main-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 1.5s ease-in;
+  padding: 2rem;
+  text-align: center;
+}
+
+.main-content.show {
+  display: block;
+  opacity: 1;
+}
+
+/* ======================= */
+/* PROYECTOS */
+/* ======================= */
+.projects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.project-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+}
+
+.project-img:hover {
+  background-color: #e54b85;
+  transform: scale(1.1);
+}
+
+/* ======================= */
+/* ANIMACIÓN DE ENTRADA */
+/* ======================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* El contenedor debe tener posición relativa para colocar la segunda imagen encima */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Imagen base: la de Camila */
+.base-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Imagen del círculo rosa: colocada encima, pero oculta por defecto */
+.circle-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  pointer-events: none; /* Para que no bloquee el hover */
+  opacity: 0; /* Oculta */
+  transition: opacity 0.3s ease;
+}
+
+/* Mostrar el círculo solo cuando el ratón está encima del contenedor */
+.image-wrapper:hover .circle-img {
+  opacity: 1;
+}
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.base-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.circle-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* HOVER */
+.image-wrapper:hover .base-img {
+  transform: scale(1.1);
+}
+
+.image-wrapper:hover .circle-img {
+  opacity: 1;
+}
