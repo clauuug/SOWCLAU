@@ -1,4 +1,6 @@
-/* Estructura básica */
+/* ======================= */
+/* ESTRUCTURA BÁSICA */
+/* ======================= */
 html,
 body {
   margin: 0;
@@ -18,18 +20,22 @@ header {
   background-position: center;
   width: 100%;
   height: 20vh;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #d6dcff;
   position: relative;
   z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 0s linear 1s;
 }
 
 .show-header {
-  display: flex;
-  animation: fadeIn 1s ease-in forwards;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .header-title {
@@ -55,14 +61,9 @@ header {
   align-items: center;
   text-align: center;
   overflow: hidden;
-
   background-color: transparent;
-  transition: transform 1s ease-in-out; /* Cambio aquí */
-}
-
-/* Añadimos el transform inicial */
-.loading-container {
-  transform: translateY(0); /* Se asegura que empiece desde 0 */
+  transform: translateY(0);
+  transition: transform 1s ease-in-out;
 }
 
 .loading-container::before {
@@ -79,28 +80,35 @@ header {
   z-index: -1;
 }
 
-/* Nueva clase para deslizar hacia arriba */
 .loading-container.slide-up {
-  transform: translateY(-100%); /* Se mueve completamente hacia arriba */
+  transform: translateY(-100%);
 }
 
-/* Ocultar completamente el elemento */
 .loading-container.hidden {
   display: none;
+  visibility: hidden;
 }
 
-/* Asegurarse que main y header tengan transiciones también */
+/* ======================= */
+/* TRANSICIÓN GENERAL */
+/* ======================= */
 .main-content,
-.header {
+header {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 0s linear 1s;
 }
 
 .main-content.show,
-.header.show-header {
+header.show-header {
   opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
+/* ======================= */
+/* TITULARES */
+/* ======================= */
 .title {
   font-weight: 500;
   font-size: 75.43px;
@@ -171,19 +179,21 @@ header {
 }
 
 /* ======================= */
-/* CONTENIDO PRINCIPAL OCULTO AL INICIO */
+/* CONTENIDO PRINCIPAL */
 /* ======================= */
 .main-content {
-  display: none;
+  display: block;
   opacity: 0;
-  transition: opacity 1.5s ease-in;
+  visibility: hidden;
+  transition: opacity 1.5s ease-in, visibility 0s linear 1.5s;
   padding: 2rem;
   text-align: center;
 }
 
 .main-content.show {
-  display: block;
   opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 /* ======================= */
@@ -196,21 +206,39 @@ header {
   gap: 20px;
   padding: 20px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
-.project-img {
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.base-img,
+.circle-img {
   width: 250px;
   height: 250px;
-  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
   display: block;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  z-index: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.project-img:hover {
-  background-color: #e54b85;
+.base-img:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.circle-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.image-wrapper:hover .circle-img {
+  opacity: 1;
 }
 
 /* ======================= */
@@ -226,70 +254,27 @@ header {
     transform: translateY(0);
   }
 }
-/* El contenedor debe tener posición relativa para colocar la segunda imagen encima */
-.image-wrapper {
-  position: relative;
-  display: inline-block;
-}
 
-/* Imagen base: la de Camila */
-.base-img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
+/* ======================= */
+/* RESPONSIVE */
+/* ======================= */
+@media (max-width: 768px) {
+  .title {
+    font-size: 50px;
+  }
 
-/* Imagen del círculo rosa: colocada encima, pero oculta por defecto */
-.circle-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  pointer-events: none; /* Para que no bloquee el hover */
-  opacity: 0; /* Oculta */
-  transition: opacity 0.3s ease;
-}
+  .subtitle {
+    font-size: 25px;
+  }
 
-/* Mostrar el círculo solo cuando el ratón está encima del contenedor */
-.image-wrapper:hover .circle-img {
-  opacity: 1;
-}
-.image-wrapper {
-  position: relative;
-  display: inline-block;
-}
+  .base-img,
+  .circle-img {
+    width: 200px;
+    height: 200px;
+  }
 
-.base-img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  display: block;
-}
-
-.circle-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-/* HOVER */
-.image-wrapper:hover .base-img {
-  transform: scale(1.1);
-}
-
-.image-wrapper:hover .circle-img {
-  opacity: 1;
+  .projects-container {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
