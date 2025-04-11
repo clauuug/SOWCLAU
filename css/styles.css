@@ -24,7 +24,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #d6dcff;
+  color: #a2b0ff;
   position: relative;
   z-index: 10;
   opacity: 0;
@@ -272,9 +272,54 @@ header.show-header {
     width: 200px;
     height: 200px;
   }
-
-  .projects-container {
-    flex-direction: column;
-    gap: 30px;
+  /* ======================= */
+  /* TEXTO CIRCULOS DEBAJO */
+  /* ======================= */
+  .project-link {
+    text-align: center;
+    margin-top: 60px; /* Ajusta este valor según sea necesario */
+    font-size: 13pt;
+    line-height: 1.4;
+    text-transform: uppercase;
   }
+}
+.project-link .analisis-text {
+  font-family: "Gotham Black", sans-serif;
+  font-weight: 900;
+}
+
+.award-name {
+  font-family: "Gotham Book", sans-serif;
+  font-weight: 300;
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.award-name:hover {
+  color: #0056d6;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.circle-img {
+  margin-bottom: 40px;
+}
+
+.project-link .analisis-text {
+  margin-right: 5px;
+}
+
+.award-name {
+  font-family: "Gotham Book", sans-serif;
+  font-weight: 300;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.award-name:hover {
+  color: #0056d6;
+  font-weight: bold;
+  text-decoration: underline;
 }

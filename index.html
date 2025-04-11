@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Imágenes Horizontales</title>
-
-    <!-- Tipografía -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -54,79 +47,120 @@
       <div class="projects-container">
         <!-- Camila -->
         <div class="image-wrapper">
-          <img
-            src="assets/images/CAMILAROSACONTAINER.png"
-            alt="Camilarosa"
-            class="base-img project-img"
-          />
-          <img
-            src="assets/images/CAMILAROSACIRCULO.png"
-            alt="Círculo rosa"
-            class="circle-img"
-          />
+          <a href="pages/analisis-camila.html">
+            <img
+              src="assets/images/CAMILAROSACONTAINER.png"
+              alt="Camilarosa"
+              class="base-img project-img"
+            />
+            <img
+              src="assets/images/CAMILAROSACIRCULO.png"
+              alt="Círculo rosa"
+              class="circle-img"
+            />
+          </a>
+          <p class="project-link">
+            <span class="analisis-text">ANÁLISIS 1 – </span>
+            <a
+              href="https://www.awwwards.com/"
+              target="_blank"
+              class="award-name"
+              >AWWWARDS</a
+            >
+          </p>
         </div>
 
         <!-- Odd -->
         <div class="image-wrapper">
-          <img
-            src="assets/images/ODDCONTAINER.png"
-            alt="Odd"
-            class="base-img project-img"
-          />
-          <img
-            src="assets/images/ODDCIRCULO.png"
-            alt="Círculo Odd"
-            class="circle-img"
-          />
+          <a href="pages/analisis-odd.html">
+            <img
+              src="assets/images/ODDCONTAINER.png"
+              alt="Odd"
+              class="base-img project-img"
+            />
+            <img
+              src="assets/images/ODDCIRCULO.PNG"
+              alt="Círculo Odd"
+              class="circle-img"
+            />
+          </a>
+          <p class="project-link">
+            <span class="analisis-text">ANÁLISIS 2 – </span>
+            <a
+              href="https://www.webbyawards.com/"
+              target="_blank"
+              class="award-name"
+              >WEBBY AWARDS</a
+            >
+          </p>
         </div>
 
         <!-- TSI -->
         <div class="image-wrapper">
-          <img
-            src="assets/images/TSICONTAINER.png"
-            alt="TSI"
-            class="base-img project-img"
-          />
-          <img
-            src="assets/images/TSICIRCULO.png"
-            alt="Círculo TSI"
-            class="circle-img"
-          />
+          <a href="pages/analisis-tsi.html">
+            <img
+              src="assets/images/TSICONTAINER.png"
+              alt="TSI"
+              class="base-img project-img"
+            />
+            <img
+              src="assets/images/TSICIRCULO.PNG"
+              alt="Círculo TSI"
+              class="circle-img"
+            />
+          </a>
+          <p class="project-link">
+            <span class="analisis-text">ANÁLISIS 3 – </span>
+            <a href="https://thefwa.com/" target="_blank" class="award-name"
+              >FWA</a
+            >
+          </p>
         </div>
 
         <!-- Pura -->
         <div class="image-wrapper">
-          <img
-            src="assets/images/PURACONTAINER.png"
-            alt="Pura"
-            class="base-img project-img"
-          />
-          <img
-            src="assets/images/PURACIRCULO.png"
-            alt="Círculo Pura"
-            class="circle-img"
-          />
+          <a href="pages/analisis-pura.html">
+            <img
+              src="assets/images/PURACONTAINER.png"
+              alt="Pura"
+              class="base-img project-img"
+            />
+            <img
+              src="assets/images/PURACIRCULO.PNG"
+              alt="Círculo Pura"
+              class="circle-img"
+            />
+          </a>
+          <p class="project-link">
+            <span class="analisis-text">ANÁLISIS 4 </span>
+            <a
+              href="https://www.cssdesignawards.com/"
+              target="_blank"
+              class="award-name"
+              >CSS DESIGN AWARDS</a
+            >
+          </p>
         </div>
+
+        <!-- Script de transición -->
+        <script>
+          setTimeout(function () {
+            const loader = document.querySelector(".loading-container");
+            const main = document.querySelector(".main-content");
+            const header = document.querySelector(".header");
+
+            // Añade clase para deslizar hacia arriba
+            loader.classList.add("slide-up");
+
+            // Espera a que termine la animación (1s) y muestra el contenido
+            setTimeout(function () {
+              loader.classList.add("hidden"); //esto lo elimina visualmente
+              main.classList.add("show");
+              header.classList.add("show-header");
+            }, 1000); // dura lo mismo que el transition del CSS
+          }, 800); // tiempo que permanece la pantalla de carga
+        </script>
       </div>
     </div>
-
-    <!-- Script de transición -->
-    <script>
-      setTimeout(function () {
-        const loader = document.querySelector(".loading-container");
-        const main = document.querySelector(".main-content");
-        const header = document.querySelector(".header");
-
-        // Añade clase para deslizar hacia arriba
-        loader.classList.add("slide-up");
-
-        // Espera a que termine la animación (1s) y muestra el contenido
-        setTimeout(function () {
-          loader.classList.add("hidden"); // lo elimina visualmente
-          main.classList.add("show");
-          header.classList.add("show-header");
-        }, 1000); // dura lo mismo que el transition del CSS
-      }, 800); // tiempo que permanece la pantalla de carga
-    </script>
   </body>
 </html>

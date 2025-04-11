@@ -1,0 +1,59 @@
+/* Estilo general */
+body {
+  font-family: "Gotham Black", sans-serif;
+  color: black;
+  margin: 0;
+  padding: 0;
+  background-color: #a2b0ff;
+}
+
+/* encabezado */
+.header {
+  width: 100%;
+  height: 200px; /* altura del encabezado */
+  background-image: url("../assets/images/FONDOSOW.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+}
+
+/* Contenido dentro del encabezado */
+.contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* título principal */
+.main-title {
+  font-size: 80px;
+  font-family: "Gotham Black", sans-serif;
+  margin: 0;
+}
+
+/* Estilo para el subtítulo */
+.sub-title {
+  font-size: 30px;
+  font-family: "Gotham Black", sans-serif;
+  margin-top: 5px;
+  font-weight: normal;
+}
+/* Estilos generales para el contenedor del iframe */
+.iframe-container {
+  width: 50%;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el iframe */
+.iframe-web {
+  width: 100%;
+  height: 100%;
+}
