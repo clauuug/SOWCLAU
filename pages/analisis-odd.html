@@ -46,9 +46,7 @@
       ></iframe>
     </div>
     <!-- CONTENIDO -->
-    <!-- INTRODUCCIÓN -->
     <div class="intro-container">
-      <p class="intro-text"></p>
       <p class="intro-text">
         La página
         <a href="https://www.oddcommon.com" target="_blank">
@@ -57,20 +55,20 @@
         es el sitio web de OddCommon, una agencia independiente de diseño y
         tecnología con sede en Brooklyn, Nueva York. Se especializa en la
         expresión de marcas y productos a través de experiencias digitales de
-        alta calidad. Este sitio, desarrollado por Alex Krawitz, cofundador y
-        CEO de la empresa, recibió el premio a la Mejor Navegación y Estructura
-        en los
+        alta calidad. Este sitio fue desarrollado por
+        <strong>Alex Krawitz</strong>, cofundador y CEO de la empresa, y recibió
+        el premio a la Mejor Navegación y Estructura en los
         <a
           href="https://winners.webbyawards.com/2024/websites-and-mobile-sites/features-design/navigationstructure/261937/oddcommon"
           target="_blank"
         >
-          <strong>Webby Awards</strong> </a
+          <strong>Webby Awards</strong></a
         >, destacando por su diseño innovador y por ofrecer una experiencia de
         usuario excepcional.
       </p>
       <img
         src="../assets/images/CAPINTROODD.png"
-        alt="Captura intro Camila"
+        alt="Captura intro OddCommon"
         style="width: 100%; border-radius: 12px"
       />
       <!-- Título principal -->
@@ -134,19 +132,13 @@
           mejor a qué se dedica.<br /><br />
 
           Respecto a las palabras clave, no se usa la etiqueta
-          <strong>&lt;meta name="keywords"&gt;</strong> (aunque hoy en día ya no
-          es tan importante), pero sí aparecen en el contenido términos como:
-          <strong>digital experiences</strong>,
+          <strong>&lt;meta name="keywords"&gt;</strong>, pero sí aparecen en el
+          contenido términos como: <strong>digital experiences</strong>,
           <strong>independent agency</strong>, <strong>design</strong>,
-          <strong>technology</strong> o <strong>brands</strong>. Están bien
-          elegidas, aunque podrían reforzarse usándolas más veces en secciones
-          clave o combinándolas con otras como “creative digital agency” o
-          “interactive experiences”.<br /><br />
-
-          Por otro lado, algunas imágenes no tienen el atributo
-          <strong>alt</strong>, lo cual es importante tanto para el SEO como
-          para la accesibilidad. Lo ideal sería incluir una breve descripción,
-          por ejemplo:<br />
+          <strong>technology</strong> o <strong>brands</strong>. Por otro lado,
+          algunas imágenes no tienen el atributo <strong>alt</strong>, lo cual
+          es importante tanto para el SEO como para la accesibilidad. Lo ideal
+          sería incluir una breve descripción, por ejemplo:<br />
           <strong
             >&lt;img src="oddcommon-ikea-project.jpg" alt="Proyecto IKEA para
             branding digital" /&gt;</strong
@@ -169,6 +161,129 @@
           <a href="https://oddcommon.com/work/" target="_blank"
             >https://oddcommon.com/work/</a
           ><br /><br />
+        </p>
+      </section>
+      <!-- ACCESIBILIDAD -->
+      <section id="accesibilidad" class="analysis-section">
+        <h3>ACCESIBILIDAD</h3>
+        <p>
+          La web de Odd Common presenta algunos elementos que contribuyen a la
+          accesibilidad, aunque también tiene bastantes aspectos mejorables. Por
+          ejemplo, incluye la etiqueta
+          <strong
+            >&lt;h1 class="banner-text
+            svelte-2tj1gb"&gt;People&lt;/h1&gt;</strong
+          >, lo que ayuda a estructurar jerárquicamente el contenido y facilita
+          la navegación con lectores de pantalla.<br /><br />
+
+          También se utiliza un sistema de navegación con migas de pan dentro de
+          la etiqueta
+          <strong>&lt;nav aria-label="Breadcrumbs"&gt;</strong>, lo que indica
+          su función como componente de navegación. Además, contiene un
+          <strong>&lt;iframe&gt;</strong> que está oculto visualmente y tiene
+          los atributos <strong>aria-hidden="true"</strong> y
+          <strong>tabindex="-1"</strong>, lo que evita que interfiera en la
+          navegación con teclado.<br /><br />
+
+          Sin embargo, no he encontrado la etiqueta
+          <strong>&lt;main&gt;</strong>, ni etiquetas como
+          <strong>&lt;label&gt;</strong>, <strong>role</strong> o
+          <strong>aria-label</strong> (más allá del menú mencionado), que
+          podrían mejorar significativamente la experiencia para personas que
+          utilizan tecnologías de asistencia.<br /><br />
+
+          Tampoco se detecta una navegación clara con teclado: no aparecen
+          elementos interactivos accesibles mediante
+          <strong>tab</strong>, ni respuesta evidente al uso de teclas como
+          <strong>Enter</strong> o <strong>Escape</strong>. En cuanto al
+          contraste, se respeta adecuadamente la relación entre fondo y texto:
+          se utilizan colores claros (como blanco o amarillo) sobre fondos
+          oscuros, lo que facilita la lectura y mejora la legibilidad en
+          general.
+        </p>
+      </section>
+      <!-- RESPONSIVIDAD -->
+      <section id="responsividad" class="analysis-section">
+        <h3>RESPONSIVIDAD</h3>
+        <p>
+          Al revisar la web, se observa que no se han implementado
+          explícitamente algunas media queries comunes como
+          <strong>@media screen and (max-width: 768px)</strong> y
+          <strong>@media screen and (min-width: 1200px)</strong>, lo que
+          normalmente ayuda a garantizar un diseño responsive. Sin embargo, la
+          web se ajusta de manera efectiva a dispositivos con diferentes tamaños
+          de pantalla, lo que indica que se han utilizado otros métodos para
+          asegurar una experiencia de usuario adecuada en dispositivos móviles y
+          pantallas grandes.<br /><br />
+
+          En cuanto a las imágenes responsivas, aunque no se utiliza
+          <strong>srcset</strong>, la web sí emplea el atributo
+          <strong>loading="lazy"</strong>, lo que optimiza la velocidad de carga
+          al cargar las imágenes solo cuando se vuelven visibles en la pantalla.
+          Esto es especialmente útil para dispositivos móviles, donde el
+          rendimiento es clave.<br /><br />
+
+          El meta tag viewport no se encuentra explícitamente en el código, pero
+          la página se adapta bien al tamaño de cualquier pantalla, lo que
+          sugiere que hay una estrategia implementada para ajustar el contenido
+          en dispositivos móviles y tabletas.<br /><br />
+
+          En cuanto al layout, aunque no se detecta el uso de
+          <strong>display: flex</strong> ni <strong>display: grid</strong>, se
+          observa que la web organiza el contenido de manera flexible utilizando
+          otras técnicas de CSS como <strong>display: contents</strong>. Además,
+          en la versión móvil, el scroll cambia de dirección de horizontal a
+          vertical, lo que asegura una navegación más fluida y comprensible para
+          el usuario en pantallas más pequeñas.<br /><br />
+        </p>
+      </section>
+      <!-- UX -->
+      <section id="ux" class="analysis-section">
+        <h3>USABILIDAD UX</h3>
+        <p>
+          Al analizar la usabilidad (UX) de la web, se observa que la navegación
+          es fluida y dinámica, lo que proporciona una experiencia de usuario
+          ágil y cómoda. En general, los usuarios pueden interactuar con la
+          página sin esfuerzo, encontrando las secciones relevantes de manera
+          intuitiva. Sin embargo, uno de los puntos a mejorar sería el menú en
+          dispositivos móviles, ya que no tiene un formato de menú desplegable o
+          un menú de hamburguesa, lo que puede dificultar la navegación en
+          pantallas más pequeñas. Agregar iconos para los menús también
+          mejoraría la accesibilidad para usuarios con diferentes capacidades
+          cognitivas. <br /><br />
+
+          En cuanto a los tiempos de carga, la web ha sido optimizada
+          adecuadamente. El <strong>First Contentful Paint (FCP)</strong> se
+          mide en <strong>0,7 segundos</strong> y el
+          <strong>Speed Index</strong> es de <strong>1,1 segundos</strong>, lo
+          que significa que el contenido principal de la página se muestra
+          rápidamente, mejorando la experiencia del usuario. Estos tiempos de
+          carga son clave para retener a los usuarios y evitar el abandono de la
+          página. Además, los resultados de la web en dispositivos móviles
+          muestran un buen desempeño en cuanto a la carga, lo que es una ventaja
+          para los usuarios que acceden desde teléfonos. <br /><br />
+
+          La organización del contenido es clara y eficiente. Las secciones como
+          <strong>work</strong>, <strong>about</strong> y
+          <strong>shop</strong> están bien estructuradas, lo que facilita la
+          navegación y permite a los usuarios encontrar rápidamente lo que
+          buscan. La tipografía es legible y bien seleccionada, lo que asegura
+          que los textos sean fáciles de leer en diferentes tamaños de pantalla.
+          Aún así, una posible mejora podría ser aumentar ligeramente el tamaño
+          de la fuente en algunas secciones del contenido para mejorar la
+          legibilidad en dispositivos móviles o para usuarios con dificultades
+          visuales.<br /><br />
+
+          Respecto a la interacción, los botones y los elementos interactivos de
+          la página son funcionales y responsivos, permitiendo a los usuarios
+          realizar acciones de manera rápida y eficiente. Los enlaces y botones
+          tienen un tamaño adecuado para ser seleccionados fácilmente, incluso
+          en pantallas táctiles. Sin embargo, la falta de iconos para las redes
+          sociales y otras funcionalidades sociales podría ser un inconveniente,
+          ya que muchos usuarios prefieren tener acceso directo a estos
+          elementos desde la interfaz. Agregar iconos o vínculos visibles de
+          manera accesible contribuiría a mejorar la experiencia de usuario y la
+          conectividad con las plataformas sociales. <br /><br />
         </p>
       </section>
 
